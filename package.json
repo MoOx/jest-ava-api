@@ -1,0 +1,54 @@
+{
+  "name": "jest-ava-api",
+  "version": "0.1.0",
+  "description": "AVA API for Jest",
+  "keywords": [
+    "jest",
+    "ava"
+  ],
+  "author": "Maxime Thirouin",
+  "license": "MIT",
+  "repository": "https://github.com/MoOx/jest-ava-api.git",
+  "#repositories": "https://github.com/npm/npm/issues/11315",
+  "repositories": [
+    "https://github.com/MoOx/jest-ava-api.git",
+    "https://gitlab.com/MoOx/jest-ava-api.git",
+    "https://bitbucket.org/MoOx/jest-ava-api.git"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src",
+    "!**/__tests__"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-preset-latest": "^6.14.0",
+    "eslint": "^3.4.0",
+    "eslint-config-i-am-meticulous": "^4.2.1",
+    "npmpub": "^3.1.0"
+  },
+  "scripts": {
+    "transpile": "babel --ignore __tests__ --copy-files src --out-dir lib",
+    "prepublish": "rimraf lib && npm -s run transpile",
+    "lint": "eslint --ignore-path .gitignore --fix .",
+    "pretest": "npm -s run lint",
+    "test": "npm run transpile && echo 'YOLO' && exit 0",
+    "release": "npmpub"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-latest"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-i-am-meticulous"
+    ],
+    "env": {
+      "jest": true
+    }
+  }
+}
