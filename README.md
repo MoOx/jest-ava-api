@@ -36,16 +36,6 @@ test("message", (t) => {
 * Jest provides a "window" object, unlike AVA, so you might need to use this option 
 http://facebook.github.io/jest/docs/api.html#testenvironment-string.
 
-* By default, Jest try to preprocess ``node_modules``, so you might need this:
-
-```js
-  "jest": {
-    "preprocessorIgnorePatterns": [
-      "node_modules"
-    ],
-  },
-```
-
 * Not also that AVA try to test ``**/__tests__/*.js``,
 while Jest try to test ``**/__tests__/**/*.js``
 so you might need to ignore fixtures if you have some, like this
